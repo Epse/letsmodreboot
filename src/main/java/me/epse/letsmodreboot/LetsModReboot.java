@@ -1,6 +1,6 @@
 package me.epse.letsmodreboot;
 
-import me.epse.letsmodreboot.config.Settings;
+import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.proxy.IProxy;
 import me.epse.letsmodreboot.utility.LogHelper;
 import me.epse.letsmodreboot.config.ConfigHandler;

@@ -1,4 +1,4 @@
-package me.epse.letsmodreboot.config;
+package me.epse.letsmodreboot.reference;
 
 public class Settings {
     //<editor-fold desc="FLAME">

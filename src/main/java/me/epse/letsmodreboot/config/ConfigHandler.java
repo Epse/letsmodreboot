@@ -1,5 +1,6 @@
 package me.epse.letsmodreboot.config;
 
+import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.utility.LogHelper;
 import net.minecraftforge.common.config.Configuration;
 
