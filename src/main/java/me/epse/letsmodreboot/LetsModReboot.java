@@ -3,7 +3,7 @@ package me.epse.letsmodreboot;
 import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.proxy.IProxy;
 import me.epse.letsmodreboot.utility.LogHelper;
-import me.epse.letsmodreboot.config.ConfigHandler;
+import me.epse.letsmodreboot.handler.ConfigHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

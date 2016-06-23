@@ -1,4 +1,4 @@
-package me.epse.letsmodreboot.config;
+package me.epse.letsmodreboot.handler;
 
 import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.utility.LogHelper;
