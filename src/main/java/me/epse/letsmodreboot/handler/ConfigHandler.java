@@ -1,8 +1,11 @@
 package me.epse.letsmodreboot.handler;
 
+import me.epse.letsmodreboot.LetsModReboot;
 import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.utility.LogHelper;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.io.File;
 
@@ -11,23 +14,28 @@ public class ConfigHandler {
     public static Configuration configuration;
     public static void preInit(File configFile) {
         configuration = new Configuration(configFile);
+        sync();
+    }
 
-        try {
-            configuration.load();
+    // Any exceptions will be handled by Forge.
+    public static void sync() {
 
-            // Load in all the things
-            Settings.setLogLess(configuration.getBoolean("logLess", Configuration.CATEGORY_GENERAL,
-                    false, "Log less things to console."));
+        configuration.load();
+
+        // Load in all the things
+        Settings.setLogLess(configuration.getBoolean("logLess", Configuration.CATEGORY_GENERAL,
+                false, "Log less things to console."));
+
+        if (configuration.hasChanged()) {
+            configuration.save();
         }
-        // This is fine, Configuration.load() shoudn't be able to throw. Everything is catched in there.
-        catch (Exception e) {
-            // Probs want to log the exception
-            LogHelper.error(e.getMessage());
-        }
-        finally {
-            if (configuration.hasChanged()) {
-                configuration.save();
-            }
+    }
+
+
+    @SubscribeEvent
+    public void onConfigChangedEvent(ConfigChangedEvent event) {
+        if (event.getModID() == LetsModReboot.MODID) {
+            sync();
         }
     }
 }
