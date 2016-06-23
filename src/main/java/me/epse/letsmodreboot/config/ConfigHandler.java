@@ -17,7 +17,7 @@ public class ConfigHandler {
             Settings.setLogLess(config.getBoolean("logLess", Configuration.CATEGORY_GENERAL,
                     false, "Log less things to console."));
         }
-        //FIXME: this you should NEVER EVER DO!
+        // This is fine, Configuration.load() shoudn't be able to throw. Everything is catched in there.
         catch (Exception e) {
             // Probs want to log the exception
             LogHelper.error(e.getMessage());
