@@ -24,7 +24,9 @@ public class ConfigHandler {
             LogHelper.error(e.getMessage());
         }
         finally {
-            configuration.save();
+            if (configuration.hasChanged()) {
+                configuration.save();
+            }
         }
     }
 }
