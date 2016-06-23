@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
 
+// Not an event handler
 public class ConfigHandler {
     public static Configuration configuration;
     public static void preInit(File configFile) {
