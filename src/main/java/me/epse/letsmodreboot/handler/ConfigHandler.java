@@ -22,8 +22,10 @@ public class ConfigHandler {
         configuration.load();
 
         // Load in all the things
-        Settings.setLogLess(configuration.getBoolean("logLess", Configuration.CATEGORY_GENERAL,
+        Settings.General.setLogLess(configuration.getBoolean("logLess", Configuration.CATEGORY_GENERAL,
                 false, "Log less things to console."));
+        Settings.General.setLogTraceToInfo(configuration.getBoolean("logTraceToInfo", Configuration.CATEGORY_GENERAL,
+                false,"Log Bug Traces to Info instead of Trace."));
 
         if (configuration.hasChanged()) {
             configuration.save();

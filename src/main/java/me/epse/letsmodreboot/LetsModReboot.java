@@ -42,7 +42,7 @@ public class LetsModReboot
     public void init(FMLInitializationEvent event) {
         // Here GUI's should get set up, tile entities, rendering, event handlers, recipies
         // Other mods should be here too, interaction with them
-        if (!Settings.getLogLess()) {
+        if (!Settings.General.getLogLess()) {
             LogHelper.info("Let's Mod Reboot in init phase.");
         }
     }
