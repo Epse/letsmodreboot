@@ -2,7 +2,6 @@ package me.epse.letsmodreboot.handler;
 
 import me.epse.letsmodreboot.LetsModReboot;
 import me.epse.letsmodreboot.reference.Settings;
-import me.epse.letsmodreboot.utility.LogHelper;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -34,7 +33,7 @@ public class ConfigHandler {
 
     @SubscribeEvent
     public void onConfigChangedEvent(ConfigChangedEvent event) {
-        if (event.getModID() == LetsModReboot.MODID) {
+        if (event.getModID() == LetsModReboot.MOD_ID) {
             sync();
         }
     }

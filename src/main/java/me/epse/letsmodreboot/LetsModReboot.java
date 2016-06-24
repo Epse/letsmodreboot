@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = LetsModReboot.MOD_ID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME)
+@Mod(modid = LetsModReboot.MOD_ID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME, guiFactory = LetsModReboot.GUI_FACTORY_CLASS)
 public class LetsModReboot
 {
     //<editor-fold desc="... //Constants">
@@ -19,6 +19,7 @@ public class LetsModReboot
     public static final String NAME = "Let's Mod Reboot";
     public static final String CLIENT_PROXY = "me.epse.letsmodreboot.proxy.ClientProxy";
     public static final String SERVER_PROXY = "me.epse.letsmodreboot.proxy.ServerProxy";
+    public static final String GUI_FACTORY_CLASS = "me.epse.letsmodreboot.client.gui.GuiFactory";
     //</editor-fold>
 
     // Use this when you need to reference this mod (loaded instance of it)

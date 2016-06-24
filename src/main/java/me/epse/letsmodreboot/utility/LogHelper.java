@@ -5,8 +5,8 @@ import org.apache.logging.log4j.*;
 import org.apache.logging.log4j.message.Message;
 
 public class LogHelper {
-    public static final Marker MOD_MARKER = MarkerManager.getMarker(LetsModReboot.MODID);
-    private static Logger logger = LogManager.getLogger(LetsModReboot.MODID);
+    public static final Marker MOD_MARKER = MarkerManager.getMarker(LetsModReboot.MOD_ID);
+    private static Logger logger = LogManager.getLogger(LetsModReboot.MOD_ID);
 
     public static void log(Level level, Marker marker, Message message) {
         logger.log(level, marker, message);
