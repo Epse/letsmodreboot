@@ -10,23 +10,23 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = LetsModReboot.MODID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME)
+@Mod(modid = LetsModReboot.MOD_ID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME)
 public class LetsModReboot
 {
     //<editor-fold desc="... //Constants">
-    public static final String MODID = "epseletsmodreboot";
+    public static final String MOD_ID = "epseletsmodreboot";
     public static final String VERSION = "1.9-1.0"; // epse: again: this is mcversion-modversion
     public static final String NAME = "Let's Mod Reboot";
-    public static final String CLIENTPROXY = "me.epse.letsmodreboot.proxy.ClientProxy";
-    public static final String SERVERPROXY = "me.epse.letsmodreboot.proxy.ServerProxy";
+    public static final String CLIENT_PROXY = "me.epse.letsmodreboot.proxy.ClientProxy";
+    public static final String SERVER_PROXY = "me.epse.letsmodreboot.proxy.ServerProxy";
     //</editor-fold>
 
     // Use this when you need to reference this mod (loaded instance of it)
     // SMARTREMARK: kinda like 'this' on steroids
-    @Mod.Instance(MODID)
+    @Mod.Instance(MOD_ID)
     public static LetsModReboot instance;
 
-    @SidedProxy(clientSide = CLIENTPROXY, serverSide = SERVERPROXY, modId = MODID)
+    @SidedProxy(clientSide = CLIENT_PROXY, serverSide = SERVER_PROXY, modId = MOD_ID)
     public static IProxy proxy;
 
     @Mod.EventHandler
