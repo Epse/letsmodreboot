@@ -1,6 +1,5 @@
 package me.epse.letsmodreboot.client.gui;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import me.epse.letsmodreboot.LetsModReboot;
 import me.epse.letsmodreboot.handler.ConfigHandler;
 import net.minecraft.client.gui.GuiButton;
@@ -8,9 +7,6 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.GuiConfig;
-import net.minecraftforge.fml.client.config.IConfigElement;
-
-import java.util.List;
 
 public class ModGuiConfig extends GuiConfig {
     public ModGuiConfig (GuiScreen guiScreen) {
