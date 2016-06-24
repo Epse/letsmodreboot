@@ -19,7 +19,7 @@ public class ModGuiConfig extends GuiConfig {
                 LetsModReboot.MOD_ID,
                 false,
                 false,
-                "Play with mods, your way.");
+                "§1§lPlay with mods, your way.");
         titleLine2 = GuiConfig.getAbridgedConfigPath(ConfigHandler.configuration.toString());
     }
 
