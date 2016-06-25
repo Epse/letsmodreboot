@@ -17,7 +17,7 @@ public class ConfigHandler {
     }
 
     // Any exceptions will be handled by Forge.
-    public static void sync() {
+    private static void sync() {
 
         configuration.load();
 

@@ -4,6 +4,7 @@ import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.proxy.IProxy;
 import me.epse.letsmodreboot.utility.LogHelper;
 import me.epse.letsmodreboot.handler.ConfigHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -35,6 +36,7 @@ public class LetsModReboot
         // Here you should load configs, init networks, setup keybindings, init items and blocks
         // Other mods aren't loaded yet, ignore them
         ConfigHandler.preInit(event.getSuggestedConfigurationFile());
+        MinecraftForge.EVENT_BUS.register(new ConfigHandler());
     }
 
     @Mod.EventHandler
