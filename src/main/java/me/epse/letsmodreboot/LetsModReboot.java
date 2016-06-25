@@ -34,7 +34,6 @@ public class LetsModReboot
     public void preInit(FMLPreInitializationEvent event) {
         // Here you should load configs, init networks, setup keybindings, init items and blocks
         // Other mods aren't loaded yet, ignore them
-
         ConfigHandler.preInit(event.getSuggestedConfigurationFile());
     }
 
