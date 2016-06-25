@@ -2,6 +2,7 @@ package me.epse.letsmodreboot.client.gui;
 
 import me.epse.letsmodreboot.LetsModReboot;
 import me.epse.letsmodreboot.handler.ConfigHandler;
+import me.epse.letsmodreboot.utility.MarkupString;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
@@ -15,7 +16,7 @@ public class ModGuiConfig extends GuiConfig {
                 LetsModReboot.MOD_ID,
                 false,
                 false,
-                "§1§lPlay with mods, your way.");
+                MarkupString.colour(MarkupString.bold("Play with mods, your way."), MarkupString.Colour.DARK_BLUE));
         titleLine2 = GuiConfig.getAbridgedConfigPath(ConfigHandler.configuration.toString());
     }
 
