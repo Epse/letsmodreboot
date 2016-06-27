@@ -1,16 +1,21 @@
 package me.epse.letsmodreboot;
 
 import me.epse.letsmodreboot.init.ModItems;
+import me.epse.letsmodreboot.item.PocketCalculator;
 import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.proxy.IProxy;
 import me.epse.letsmodreboot.utility.LogHelper;
 import me.epse.letsmodreboot.handler.ConfigHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = LetsModReboot.MOD_ID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME, guiFactory = LetsModReboot.GUI_FACTORY_CLASS)
 public class LetsModReboot
@@ -47,6 +52,12 @@ public class LetsModReboot
         // Other mods should be here too, interaction with them
         if (!Settings.General.getLogLess()) {
             LogHelper.info("Let's Mod Reboot in init phase.");
+        }
+
+        if (event.getSide() == Side.CLIENT) {
+            RenderItem renderitem = Minecraft.getMinecraft().getRenderItem();
+            renderitem.getItemModelMesher().register(ModItems.pocketCalculator, 0,
+                    new ModelResourceLocation(MOD_ID + ":" + ((PocketCalculator) ModItems.pocketCalculator).getName(), "inventory"));
         }
     }
 
