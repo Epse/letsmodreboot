@@ -55,8 +55,8 @@ public class LetsModReboot
         }
 
         if (event.getSide() == Side.CLIENT) {
-            RenderItem renderitem = Minecraft.getMinecraft().getRenderItem();
-            renderitem.getItemModelMesher().register(ModItems.pocketCalculator, 0,
+            RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+            renderItem.getItemModelMesher().register(ModItems.pocketCalculator, 0,
                     new ModelResourceLocation(MOD_ID + ":" + ((PocketCalculator) ModItems.pocketCalculator).getName(), "inventory"));
         }
     }
