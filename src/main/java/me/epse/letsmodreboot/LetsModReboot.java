@@ -1,5 +1,6 @@
 package me.epse.letsmodreboot;
 
+import me.epse.letsmodreboot.init.ModItems;
 import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.proxy.IProxy;
 import me.epse.letsmodreboot.utility.LogHelper;
@@ -37,6 +38,7 @@ public class LetsModReboot
         // Other mods aren't loaded yet, ignore them
         ConfigHandler.preInit(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigHandler());
+        ModItems.preInit();
     }
 
     @Mod.EventHandler
