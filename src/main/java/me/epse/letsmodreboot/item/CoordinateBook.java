@@ -4,13 +4,13 @@ import me.epse.letsmodreboot.LetsModReboot;
 import net.minecraft.util.ResourceLocation;
 
 public class CoordinateBook extends ItemLMRB {
-    private final String name = "ItemCoordinateBook";
+    private final String NAME = "ItemCoordinateBook";
     public CoordinateBook() {
         super();
-        this.setUnlocalizedName(name);
-        this.setRegistryName(new ResourceLocation(LetsModReboot.MOD_ID, name));
+        this.setUnlocalizedName(NAME);
+        this.setRegistryName(new ResourceLocation(LetsModReboot.MOD_ID, NAME));
     }
-    public String getName() {
-        return name;
+    public String getNAME() {
+        return NAME;
     }
 }

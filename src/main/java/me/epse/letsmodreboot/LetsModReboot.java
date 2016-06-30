@@ -1,11 +1,12 @@
 package me.epse.letsmodreboot;
 
-import me.epse.letsmodreboot.init.ModItems;
-import me.epse.letsmodreboot.item.PocketCalculator;
-import me.epse.letsmodreboot.reference.Settings;
-import me.epse.letsmodreboot.proxy.IProxy;
-import me.epse.letsmodreboot.utility.LogHelper;
 import me.epse.letsmodreboot.handler.ConfigHandler;
+import me.epse.letsmodreboot.init.ModItems;
+import me.epse.letsmodreboot.item.CoordinateBook;
+import me.epse.letsmodreboot.item.PocketCalculator;
+import me.epse.letsmodreboot.proxy.IProxy;
+import me.epse.letsmodreboot.reference.Settings;
+import me.epse.letsmodreboot.utility.LogHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -18,8 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = LetsModReboot.MOD_ID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME, guiFactory = LetsModReboot.GUI_FACTORY_CLASS)
-public class LetsModReboot
-{
+public class LetsModReboot {
     //<editor-fold desc="... //Constants">
     public static final String MOD_ID = "epseletsmodreboot";
     public static final String VERSION = "1.9-1.0"; // epse: again: this is mcversion-modversion
@@ -41,23 +41,25 @@ public class LetsModReboot
     public void preInit(FMLPreInitializationEvent event) {
         // Here you should load configs, init networks, setup keybindings, init items and blocks
         // Other mods aren't loaded yet, ignore them
-        ConfigHandler.preInit(event.getSuggestedConfigurationFile());
+        ConfigHandler.init(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigHandler());
-        ModItems.preInit();
+        ModItems.init();
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         // Here GUI's should get set up, tile entities, rendering, event handlers, recipies
         // Other mods should be here too, interaction with them
-        if (!Settings.General.getLogLess()) {
+        if (! Settings.General.getLogLess()) {
             LogHelper.info("Let's Mod Reboot in init phase.");
         }
 
         if (event.getSide() == Side.CLIENT) {
             RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
             renderItem.getItemModelMesher().register(ModItems.pocketCalculator, 0,
-                    new ModelResourceLocation(MOD_ID + ":" + ((PocketCalculator) ModItems.pocketCalculator).getName(), "inventory"));
+                    new ModelResourceLocation(MOD_ID + ":" + ((PocketCalculator) ModItems.pocketCalculator).getNAME(), "inventory"));
+            renderItem.getItemModelMesher().register(ModItems.coordinateBook, 0,
+                    new ModelResourceLocation(MOD_ID + ":" + ((CoordinateBook) ModItems.coordinateBook).getNAME(), "inventory"));
         }
     }
 

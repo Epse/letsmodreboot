@@ -11,7 +11,7 @@ import java.io.File;
 // Not an event handler
 public class ConfigHandler {
     public static Configuration configuration;
-    public static void preInit(File configFile) {
+    public static void init(File configFile) {
         configuration = new Configuration(configFile);
         sync();
     }

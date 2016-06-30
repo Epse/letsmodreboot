@@ -4,13 +4,15 @@ import me.epse.letsmodreboot.LetsModReboot;
 import net.minecraft.util.ResourceLocation;
 
 public class PocketCalculator extends ItemLMRB {
-    private final String name = "ItemPocketCalculator";
+    private final String NAME = "ItemPocketCalculator";
+
     public PocketCalculator() {
         super();
-        this.setUnlocalizedName(name);
-        this.setRegistryName(new ResourceLocation(LetsModReboot.MOD_ID, name));
+        this.setUnlocalizedName(NAME);
+        this.setRegistryName(new ResourceLocation(LetsModReboot.MOD_ID, NAME));
     }
-    public String getName() {
-        return name;
+
+    public String getNAME() {
+        return NAME;
     }
 }

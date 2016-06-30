@@ -11,7 +11,7 @@ public class ModItems {
     public static final ItemLMRB pocketCalculator = new PocketCalculator();
     public static final ItemLMRB coordinateBook = new CoordinateBook();
 
-    public static void preInit(){
+    public static void init(){
         GameRegistry.register(pocketCalculator);
         GameRegistry.register(coordinateBook);
     }

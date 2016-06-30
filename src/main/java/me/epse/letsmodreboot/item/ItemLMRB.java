@@ -7,6 +7,6 @@ public class ItemLMRB extends Item {
     public ItemLMRB() {
         super();
         this.maxStackSize = 1;
-        this.setCreativeTab(CreativeTabs.tabMisc);
+        this.setCreativeTab(CreativeTabs.MISC);
     }
 }
