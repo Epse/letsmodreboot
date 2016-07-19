@@ -1,22 +1,17 @@
 package me.epse.letsmodreboot;
 
 import me.epse.letsmodreboot.handler.ConfigHandler;
+import me.epse.letsmodreboot.init.ModBlocks;
 import me.epse.letsmodreboot.init.ModItems;
-import me.epse.letsmodreboot.item.CoordinateBook;
-import me.epse.letsmodreboot.item.PocketCalculator;
-import me.epse.letsmodreboot.proxy.IProxy;
+import me.epse.letsmodreboot.proxy.CommonProxy;
 import me.epse.letsmodreboot.reference.Settings;
 import me.epse.letsmodreboot.utility.LogHelper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderItem;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = LetsModReboot.MOD_ID, version = LetsModReboot.VERSION, name = LetsModReboot.NAME, guiFactory = LetsModReboot.GUI_FACTORY_CLASS)
 public class LetsModReboot {
@@ -35,7 +30,7 @@ public class LetsModReboot {
     public static LetsModReboot instance;
 
     @SidedProxy(clientSide = CLIENT_PROXY, serverSide = SERVER_PROXY, modId = MOD_ID)
-    public static IProxy proxy;
+    public static CommonProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -44,6 +39,7 @@ public class LetsModReboot {
         ConfigHandler.init(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigHandler());
         ModItems.init();
+        ModBlocks.init();
     }
 
     @Mod.EventHandler
@@ -54,13 +50,7 @@ public class LetsModReboot {
             LogHelper.info("Let's Mod Reboot in init phase.");
         }
 
-        if (event.getSide() == Side.CLIENT) {
-            RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
-            renderItem.getItemModelMesher().register(ModItems.pocketCalculator, 0,
-                    new ModelResourceLocation(MOD_ID + ":" + ((PocketCalculator) ModItems.pocketCalculator).getNAME(), "inventory"));
-            renderItem.getItemModelMesher().register(ModItems.coordinateBook, 0,
-                    new ModelResourceLocation(MOD_ID + ":" + ((CoordinateBook) ModItems.coordinateBook).getNAME(), "inventory"));
-        }
+        proxy.registerRenderInformation();
     }
 
     @Mod.EventHandler

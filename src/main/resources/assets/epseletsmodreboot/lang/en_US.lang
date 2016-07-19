@@ -1,2 +1,3 @@
-item.ItemPocketCalculator.name=Pocket Calculator
+item.ItemPocketCalculator.name=Pocket calculator
 item.ItemCoordinateBook.name=Coordinate book
+tile.BlockMarkerBlock.name=Marker block

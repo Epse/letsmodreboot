@@ -1,5 +1,7 @@
 package me.epse.letsmodreboot.proxy;
 
-public abstract class CommonProxy implements IProxy {
+public class CommonProxy {
+    public void registerRenderInformation() {
 
+    }
 }
